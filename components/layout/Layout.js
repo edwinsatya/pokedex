@@ -1,4 +1,6 @@
 import Head from "next/head";
+import Header from "../header/Header";
+import Footer from "../footer/Footer";
 
 export default function Layout({ title, desc, children }) {
   return (
@@ -9,7 +11,11 @@ export default function Layout({ title, desc, children }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div>{children}</div>
+      <Header />
+
+      <main>{children}</main>
+
+      <Footer />
     </>
   );
 }
