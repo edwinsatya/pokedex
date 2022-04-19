@@ -29,16 +29,9 @@ export default function Home() {
   };
 
   useEffect(() => {
-    console.log("trigger");
     if (data) {
-      let newListPokemon = [...listPokemon, ...data.pokemons.results];
-      console.log(data);
+      let newListPokemon = [...data.pokemons.results];
       setListPokemon(newListPokemon);
-
-      // setVariables({
-      //   limit,
-      //   offset,
-      // });
     }
   }, [data]);
 
