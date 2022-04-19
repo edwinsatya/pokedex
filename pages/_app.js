@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import "../components/buttons/menu.css";
 import { ApolloProvider } from "@apollo/client";
 import apolloClient from "../lib/apollo-client";
 
