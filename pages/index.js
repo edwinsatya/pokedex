@@ -1,45 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
-import { useQuery, gql } from "@apollo/client";
-
-const pokemons = gql`
-  query pokemons($limit: Int, $offset: Int) {
-    pokemons(limit: $limit, offset: $offset) {
-      next
-      previous
-      message
-      results {
-        id
-        url
-        name
-        image
-      }
-    }
-  }
-`;
-
-const pokemon = gql`
-  query pokemon($name: String!) {
-    pokemon(name: $name) {
-      id
-      name
-      sprites {
-        front_default
-      }
-      moves {
-        move {
-          name
-        }
-      }
-      types {
-        type {
-          name
-        }
-      }
-    }
-  }
-`;
+import { useQuery } from "@apollo/client";
+import { GET_POKEMON } from "../graphQl/query";
 
 export default function Home() {
   // const variables = {
@@ -55,7 +18,7 @@ export default function Home() {
     name: "bulbasaur",
   };
 
-  const { data, error, loading } = useQuery(pokemon, {
+  const { data, error, loading } = useQuery(GET_POKEMON, {
     variables,
   });
 
