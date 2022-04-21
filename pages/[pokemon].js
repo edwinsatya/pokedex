@@ -27,12 +27,16 @@ export default function Pokemon({ pokemon }) {
   const { state, dispatch } = UseGlobalContext();
 
   useEffect(() => {
-    localStorage.setItem("owned", JSON.stringify(state.myPokemon));
+    // const currentLocal = JSON.parse(localStorage.getItem("owned")) ?? {};
+    if (Object.keys(state.myPokemon).length > 0) {
+      localStorage.setItem("owned", JSON.stringify(state.myPokemon));
+    }
   }, [state]);
+
   const handleCatchPokemon = () => {
     if (getChanceCatchPokemon()) {
       dispatch({
-        type: "SET_FIRST_STATE",
+        type: "SET_STATE",
         value: {
           pokemonId: pokemon.id,
           pokemonNickName: pokemon.name,

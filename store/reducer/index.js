@@ -4,7 +4,7 @@ export const initialState = {
 
 export function reducer(state, action) {
   switch (action.type) {
-    case "SET_FIRST_STATE":
+    case "SET_STATE":
       const { pokemonId, pokemonNickName } = action.value;
       if (!state.myPokemon[pokemonId]) {
         return {
@@ -21,6 +21,9 @@ export function reducer(state, action) {
           },
         };
       }
+    case "SET_LOCAL_STORAGE":
+      localStorage.setItem("owned", state.myPokemon);
+      break;
     case "GET_STATE":
       return {
         myPokemon: JSON.parse(localStorage.getItem("owned")) ?? {},

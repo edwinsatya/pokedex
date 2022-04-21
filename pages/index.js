@@ -3,11 +3,11 @@ import { useQuery } from "@apollo/client";
 import { GET_POKEMONS } from "../graphQl/queries";
 import { useState, useEffect, useMemo } from "react";
 import { useRouter } from "next/router";
-// import { UseGlobalContext } from "../store/context";
+import { UseGlobalContext } from "../store/context";
 
 export default function Home() {
   const router = useRouter();
-  // const { state, setState } = UseGlobalContext();
+  const { state, dispatch } = UseGlobalContext();
   const [listPokemon, setListPokemon] = useState([]);
 
   const { data, error, loading, fetchMore } = useQuery(GET_POKEMONS, {
@@ -31,22 +31,22 @@ export default function Home() {
 
   useEffect(() => {
     if (data) {
-      // setState({ type: "GET_STATE" });
+      dispatch({ type: "GET_STATE" });
       const newListPokemon = data.pokemons.results;
       setListPokemon(newListPokemon);
     }
   }, [data]);
 
-  // const getPokemonsWithOwned = useMemo(() => {
-  //   const owned = typeof window !== "undefined" ? state.myPokemon : {};
+  const getPokemonsWithOwned = useMemo(() => {
+    const owned = typeof window !== "undefined" ? state.myPokemon : {};
 
-  //   return listPokemon.map((pokemon) => {
-  //     return {
-  //       ...pokemon,
-  //       owned: owned[pokemon.id]?.length ?? 0,
-  //     };
-  //   });
-  // }, [listPokemon, state]);
+    return listPokemon.map((pokemon) => {
+      return {
+        ...pokemon,
+        owned: owned[pokemon.id]?.length ?? 0,
+      };
+    });
+  }, [listPokemon, state]);
 
   if (error) {
     console.log(error);
@@ -59,7 +59,7 @@ export default function Home() {
   return (
     <Layout title="Home" desc="this page about list of pokemons">
       <div>
-        {listPokemon.map((pokemon) => (
+        {getPokemonsWithOwned.map((pokemon) => (
           <div key={pokemon.id} onClick={() => router.push(`/${pokemon.name}`)}>
             <p className="text-white">{pokemon.name}</p>
             <p className="text-white">{pokemon.owned}</p>
