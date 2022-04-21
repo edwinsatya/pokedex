@@ -1,3 +1,4 @@
+import Layout from "../components/layout/Layout";
 import client from "../lib/apollo-client";
 import getChanceCatchPokemon from "../helpers/getChanceCatchPokemon";
 import { GET_POKEMON } from "../graphQl/queries";
@@ -37,10 +38,15 @@ export default function Pokemon({ pokemon }) {
   };
 
   return (
-    <div>
-      <h1>{pokemon.name}</h1>
-      <button onClick={handleCatchPokemon}>Catch This</button>
-      <button onClick={() => router.push("/")}>back</button>
-    </div>
+    <Layout
+      title="Pokemon Details"
+      desc="This page about detail of pokemon, you can catch them!"
+    >
+      <div className="text-white">
+        <h1>{pokemon.name}</h1>
+        <button onClick={handleCatchPokemon}>Catch This</button>
+        <button onClick={() => router.push("/")}>back</button>
+      </div>
+    </Layout>
   );
 }

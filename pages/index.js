@@ -57,7 +57,7 @@ export default function Home() {
   }
 
   return (
-    <Layout title="Home" desc="this page about list pokemon">
+    <Layout title="Home" desc="this page about list of pokemons">
       <div>
         {getComputed.map((pokemon) => (
           <div key={pokemon.id} onClick={() => router.push(`/${pokemon.name}`)}>
