@@ -39,7 +39,6 @@ export default function Home() {
       typeof window !== "undefined"
         ? JSON.parse(localStorage.getItem("owned")) ?? {}
         : {};
-    console.log(ownedCard, "ownedcard");
 
     return listPokemon.map((pokemon) => {
       return {

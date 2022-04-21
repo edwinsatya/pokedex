@@ -1,4 +1,5 @@
 import client from "../lib/apollo-client";
+import getChanceCatchPokemon from "../helpers/getChanceCatchPokemon";
 import { GET_POKEMON } from "../graphQl/queries";
 import { useRouter } from "next/router";
 
@@ -22,13 +23,17 @@ export default function Pokemon({ pokemon }) {
   const router = useRouter();
 
   const handleCatchPokemon = () => {
-    const currentLocal = JSON.parse(localStorage.getItem("owned")) ?? {};
-    currentLocal[pokemon.id] = [
-      ...(currentLocal[pokemon.id] ?? []),
-      pokemon.name,
-    ];
+    if (getChanceCatchPokemon()) {
+      const currentLocal = JSON.parse(localStorage.getItem("owned")) ?? {};
+      currentLocal[pokemon.id] = [
+        ...(currentLocal[pokemon.id] ?? []),
+        pokemon.name,
+      ];
 
-    localStorage.setItem("owned", JSON.stringify(currentLocal));
+      localStorage.setItem("owned", JSON.stringify(currentLocal));
+    } else {
+      console.log("gagal tangkap");
+    }
   };
 
   return (
