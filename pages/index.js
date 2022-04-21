@@ -1,7 +1,7 @@
 import Layout from "../components/layout/Layout";
 import { useQuery } from "@apollo/client";
 import { GET_POKEMONS } from "../graphQl/queries";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useRouter } from "next/router";
 
 export default function Home() {
@@ -30,10 +30,24 @@ export default function Home() {
   useEffect(() => {
     if (data) {
       const newListPokemon = data.pokemons.results;
-      console.log(newListPokemon);
       setListPokemon(newListPokemon);
     }
   }, [data]);
+
+  const getComputed = useMemo(() => {
+    const ownedCard =
+      typeof window !== "undefined"
+        ? JSON.parse(localStorage.getItem("owned")) ?? {}
+        : {};
+    console.log(ownedCard, "ownedcard");
+
+    return listPokemon.map((pokemon) => {
+      return {
+        ...pokemon,
+        owned: ownedCard[pokemon.id]?.length ?? 0,
+      };
+    });
+  }, [listPokemon]);
 
   if (error) {
     console.log(error);
@@ -46,9 +60,10 @@ export default function Home() {
   return (
     <Layout title="Home" desc="this page about list pokemon">
       <div>
-        {listPokemon.map((pokemon) => (
+        {getComputed.map((pokemon) => (
           <div key={pokemon.id} onClick={() => router.push(`/${pokemon.name}`)}>
-            <p>{pokemon.name}</p>
+            <p className="text-white">{pokemon.name}</p>
+            <p className="text-white">{pokemon.owned}</p>
             <img
               src={`${`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}`}
               alt="poke"
@@ -56,7 +71,9 @@ export default function Home() {
           </div>
         ))}
       </div>
-      <button onClick={() => handleShowMore()}>show more</button>
+      <button className="text-white" onClick={() => handleShowMore()}>
+        show more
+      </button>
     </Layout>
   );
 }
