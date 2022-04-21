@@ -1,5 +1,5 @@
 const getChanceCatchPokemon = () => {
-  // percentage 50 ? true / false
+  // 1 true / 0 false
   return Math.floor(Math.random() * 2);
 };
 

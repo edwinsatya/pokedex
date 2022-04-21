@@ -3,6 +3,8 @@ import client from "../lib/apollo-client";
 import getChanceCatchPokemon from "../helpers/getChanceCatchPokemon";
 import { GET_POKEMON } from "../graphQl/queries";
 import { useRouter } from "next/router";
+import { UseGlobalContext } from "../store/context";
+import { useEffect } from "react";
 
 export async function getServerSideProps(context) {
   const params = context.params.pokemon;
@@ -22,16 +24,20 @@ export async function getServerSideProps(context) {
 
 export default function Pokemon({ pokemon }) {
   const router = useRouter();
+  const { state, dispatch } = UseGlobalContext();
 
+  useEffect(() => {
+    localStorage.setItem("owned", JSON.stringify(state.myPokemon));
+  }, [state]);
   const handleCatchPokemon = () => {
     if (getChanceCatchPokemon()) {
-      const currentLocal = JSON.parse(localStorage.getItem("owned")) ?? {};
-      currentLocal[pokemon.id] = [
-        ...(currentLocal[pokemon.id] ?? []),
-        pokemon.name,
-      ];
-
-      localStorage.setItem("owned", JSON.stringify(currentLocal));
+      dispatch({
+        type: "SET_FIRST_STATE",
+        value: {
+          pokemonId: pokemon.id,
+          pokemonNickName: pokemon.name,
+        },
+      });
     } else {
       console.log("gagal tangkap");
     }
