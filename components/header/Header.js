@@ -1,8 +1,11 @@
 import Image from "next/image";
 import logoImg from "../../public/assets/images/logo.png";
 import Menu from "../buttons/Menu";
+import { useRouter } from "next/router";
 
 export default function Header() {
+  const router = useRouter();
+
   return (
     <header className="bg-white w-full flex justify-center">
       <nav
@@ -10,7 +13,10 @@ export default function Header() {
         style={{ maxWidth: "1440px" }}
       >
         <Menu className="absolute flex items-center justify-center w-7 h-5 left-0 md:hidden" />
-        <div className="relative w-28 h-10 md:w-40 md:h-14">
+        <div
+          className="relative w-28 h-10 md:w-40 md:h-14 cursor-pointer"
+          onClick={() => router.push("/")}
+        >
           <Image
             src={logoImg}
             alt="logo"

@@ -27,7 +27,6 @@ export default function Pokemon({ pokemon }) {
   const { state, dispatch } = UseGlobalContext();
 
   useEffect(() => {
-    // const currentLocal = JSON.parse(localStorage.getItem("owned")) ?? {};
     if (Object.keys(state.myPokemon).length > 0) {
       localStorage.setItem("owned", JSON.stringify(state.myPokemon));
     }

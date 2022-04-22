@@ -18,10 +18,10 @@ export default function Card({ dataProps, onClick }) {
 
   return (
     <div
-      className="w-full mb-7 text-white border border-cyan-600 rounded-xl shadow-lg shadow-cyan-700 flex flex-col items-center justify-center p-3 cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:bg-indigo-600 hover:shadow-none duration-150 sm:w-64 sm:mx-auto xl:w-72"
+      className="w-full mb-7 text-white border border-cyan-600 rounded-xl shadow-lg shadow-cyan-700 flex flex-col items-center justify-center p-3 cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:bg-indigo-600 hover:shadow-none duration-150 sm:w-64 xl:w-72"
       onClick={onClick}
     >
-      <div className="card-image w-60 h-52 sm:w-60 relative">
+      <div className="card-image w-60 h-52 sm:w-60 lg:w-72 relative">
         {/* image wrapper */}
         <Image
           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`}

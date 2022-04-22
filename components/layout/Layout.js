@@ -23,7 +23,7 @@ export default function Layout({ title, desc, children }) {
       <Header />
 
       <div
-        className="w-full"
+        className="w-full p-8"
         style={{ backgroundColor: "#091829", maxWidth: "1440px" }}
       >
         <main>{children}</main>

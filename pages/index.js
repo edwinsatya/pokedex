@@ -1,6 +1,7 @@
 import Layout from "../components/layout/Layout";
 import CardWrapper from "../components/card/CardWrapper";
 import Card from "../components/card/Card";
+import Button from "../components/buttons/Button";
 import { useQuery } from "@apollo/client";
 import { GET_POKEMONS } from "../graphQl/queries";
 import { useState, useEffect, useMemo } from "react";
@@ -60,7 +61,7 @@ export default function Home() {
 
   return (
     <Layout title="Home" desc="this page about list of pokemons">
-      <div>
+      <div className="flex flex-col">
         <CardWrapper>
           {getPokemonsWithOwned.map((pokemon) => (
             <Card
@@ -70,10 +71,15 @@ export default function Home() {
             ></Card>
           ))}
         </CardWrapper>
+        <Button
+          className="rounded-xl w-full max-w-2xl border border-cyan-600 text-blue-300 text-sm font-bold shadow-lg shadow-cyan-700 cursor-pointer transition ease-in-out hover:bg-blue-300 hover:text-black hover:shadow-none duration-150 mx-auto py-2 lg:py-5 lg:my-3 lg:text-xl"
+          title="Lebih Banyak Pokémon"
+          onClick={handleShowMore}
+        />
+        {/* 
+        rounded-3xl py-5 px-60 border border-cyan-600 text-blue-300 font-light shadow-lg shadow-cyan-700
+        */}
       </div>
-      <button className="text-white" onClick={() => handleShowMore()}>
-        show more
-      </button>
     </Layout>
   );
 }
