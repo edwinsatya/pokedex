@@ -4,9 +4,13 @@ import Footer from "../footer/Footer";
 import styled from "@emotion/styled";
 
 const LayoutWrapper = styled.div`
-  background-color: #090917;
+  background-color: #1b252f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
-
+// 091829
 export default function Layout({ title, desc, children }) {
   return (
     <LayoutWrapper>
@@ -18,9 +22,14 @@ export default function Layout({ title, desc, children }) {
 
       <Header />
 
-      <main>{children}</main>
+      <div
+        className="w-full"
+        style={{ backgroundColor: "#091829", maxWidth: "1440px" }}
+      >
+        <main>{children}</main>
 
-      <Footer />
+        <Footer />
+      </div>
     </LayoutWrapper>
   );
 }

@@ -1,4 +1,6 @@
 import Layout from "../components/layout/Layout";
+import CardWrapper from "../components/card/CardWrapper";
+import Card from "../components/card/Card";
 import { useQuery } from "@apollo/client";
 import { GET_POKEMONS } from "../graphQl/queries";
 import { useState, useEffect, useMemo } from "react";
@@ -59,16 +61,15 @@ export default function Home() {
   return (
     <Layout title="Home" desc="this page about list of pokemons">
       <div>
-        {getPokemonsWithOwned.map((pokemon) => (
-          <div key={pokemon.id} onClick={() => router.push(`/${pokemon.name}`)}>
-            <p className="text-white">{pokemon.name}</p>
-            <p className="text-white">{pokemon.owned}</p>
-            <img
-              src={`${`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}`}
-              alt="poke"
-            />
-          </div>
-        ))}
+        <CardWrapper>
+          {getPokemonsWithOwned.map((pokemon) => (
+            <Card
+              key={pokemon.id}
+              onClick={() => router.push(`/${pokemon.name}`)}
+              dataProps={pokemon}
+            ></Card>
+          ))}
+        </CardWrapper>
       </div>
       <button className="text-white" onClick={() => handleShowMore()}>
         show more
