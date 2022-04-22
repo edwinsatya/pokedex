@@ -48,8 +48,8 @@ export default function Pokemon({ pokemon }) {
 
   return (
     <Layout
-      title="Pokemon Details"
-      desc="This page about detail of pokemon, you can catch them!"
+      title={`${pokemon.name} Details`}
+      desc={`This page about detail of ${pokemon.name}, you can catch them!`}
     >
       <div className="text-white">
         <h1>{pokemon.name}</h1>

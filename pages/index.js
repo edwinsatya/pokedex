@@ -38,7 +38,7 @@ export default function Home() {
       const newListPokemon = data.pokemons.results;
       setListPokemon(newListPokemon);
     }
-  }, [data]);
+  }, [data, dispatch]);
 
   const getPokemonsWithOwned = useMemo(() => {
     const owned = typeof window !== "undefined" ? state.myPokemon : {};
@@ -60,7 +60,7 @@ export default function Home() {
   }
 
   return (
-    <Layout title="Home" desc="this page about list of pokemons">
+    <Layout title="Pokédex" desc="Pokédex | This page about list of pokemons">
       <div className="flex flex-col">
         <CardWrapper>
           {getPokemonsWithOwned.map((pokemon) => (

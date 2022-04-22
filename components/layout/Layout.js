@@ -10,14 +10,14 @@ const LayoutWrapper = styled.div`
   justify-content: center;
   align-items: center;
 `;
-// 091829
+
 export default function Layout({ title, desc, children }) {
   return (
     <LayoutWrapper>
       <Head>
         <title>{title}</title>
         <meta name="description" content={desc} />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/pokemon.png" />
       </Head>
 
       <Header />
