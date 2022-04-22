@@ -9,16 +9,21 @@ export default function Card({ dataProps, onClick }) {
       return `00${id}`;
     } else if (id < 100) {
       return `0${id}`;
-    } else if (id < 1000) {
-      return `${id}`;
     } else {
       return `${id}`;
     }
   }, [id]);
 
+  const classNumberOwned = (owned) => {
+    if (owned > 0) {
+      return "text-yellow-400";
+    }
+    return "text-gray-400";
+  };
+
   return (
     <div
-      className="w-full mb-7 text-white border border-cyan-600 rounded-xl shadow-lg shadow-cyan-700 flex flex-col items-center justify-center p-3 cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:bg-indigo-600 hover:shadow-none duration-150 sm:w-64 xl:w-72"
+      className="w-full mb-7 overflow-hidden text-white border-2 border-cyan-700 rounded-2xl shadow-lg shadow-cyan-700 flex flex-col items-center justify-center cursor-pointer transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-105 hover:bg-indigo-600 hover:shadow-none duration-150 sm:w-64 xl:w-72"
       onClick={onClick}
     >
       <div className="card-image w-60 h-52 sm:w-60 lg:w-72 relative">
@@ -30,14 +35,20 @@ export default function Card({ dataProps, onClick }) {
           quality={100}
         />
       </div>
-      <div className="p-3 w-full">
+      <div
+        className="p-3 w-full"
+        style={{
+          backgroundColor: "rgba(0, 255, 255, 0.2)",
+        }}
+      >
         {/* description */}
         <p className="text-cyan-300 text-lg xl:text-xl">{computedId}</p>
         <p className="capitalize font-bold text-xl xl:text-2xl">{name}</p>
         <p className="flex items-center">
           <span className="text-blue-300 text-base xl:text-lg"> Owned :</span>
-          <span className="font-semibold text-red-700 text-4xl ml-2">
-            {" "}
+          <span
+            className={`${classNumberOwned(owned)} font-semibold text-4xl ml-2`}
+          >
             {owned}
           </span>
         </p>

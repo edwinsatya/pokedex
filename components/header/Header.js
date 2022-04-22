@@ -12,7 +12,7 @@ export default function Header() {
         className="relative flex justify-center items-center w-full md:justify-start py-2 px-5 md:px-12"
         style={{ maxWidth: "1440px" }}
       >
-        <Menu className="absolute flex items-center justify-center w-7 h-5 left-0 md:hidden" />
+        <Menu className="absolute flex items-center justify-center w-7 h-5 left-6 md:hidden" />
         <div
           className="relative w-28 h-10 md:w-40 md:h-14 cursor-pointer"
           onClick={() => router.push("/")}
