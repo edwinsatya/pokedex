@@ -21,8 +21,8 @@ export default function Header() {
             src={logoImg}
             alt="logo"
             layout={"fill"}
-            priority
             quality={100}
+            priority
           />
         </div>
       </nav>

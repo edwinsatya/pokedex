@@ -33,6 +33,7 @@ export default function Card({ dataProps, onClick }) {
           alt="card-img"
           layout="fill"
           quality={100}
+          priority
         />
       </div>
       <div
