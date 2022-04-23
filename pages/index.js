@@ -76,9 +76,6 @@ export default function Home() {
           title="Lebih Banyak Pokémon"
           onClick={handleShowMore}
         />
-        {/* 
-        rounded-3xl py-5 px-60 border border-cyan-600 text-blue-300 font-light shadow-lg shadow-cyan-700
-        */}
       </div>
     </Layout>
   );

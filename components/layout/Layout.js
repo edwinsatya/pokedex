@@ -11,6 +11,17 @@ const LayoutWrapper = styled.div`
   align-items: center;
 `;
 
+const MainWrapper = styled.div`
+  width: 100%;
+  padding: 1rem;
+  overflow: hidden;
+  @media (min-width: 768px) {
+    padding: 2rem;
+  }
+  background-color: #091829;
+  max-width: 1440px;
+`;
+
 export default function Layout({ title, desc, children }) {
   return (
     <LayoutWrapper>
@@ -22,14 +33,11 @@ export default function Layout({ title, desc, children }) {
 
       <Header />
 
-      <div
-        className="w-full p-8"
-        style={{ backgroundColor: "#091829", maxWidth: "1440px" }}
-      >
+      <MainWrapper>
         <main>{children}</main>
 
         <Footer />
-      </div>
+      </MainWrapper>
     </LayoutWrapper>
   );
 }
