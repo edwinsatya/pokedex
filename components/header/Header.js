@@ -4,7 +4,7 @@ import Menu from "../buttons/Menu";
 import { useRouter } from "next/router";
 
 export default function Header() {
-  const router = useRouter();
+  const Router = useRouter();
 
   return (
     <header className="bg-white w-full flex justify-center">
@@ -15,7 +15,7 @@ export default function Header() {
         <Menu className="absolute flex items-center justify-center w-7 h-5 left-6 md:hidden" />
         <div
           className="relative w-28 h-10 md:w-40 md:h-14 cursor-pointer"
-          onClick={() => router.push("/")}
+          onClick={() => Router.push("/")}
         >
           <Image
             src={logoImg}
@@ -24,6 +24,27 @@ export default function Header() {
             quality={100}
             priority
           />
+        </div>
+        <div className="ml-7 relative">
+          <div
+            className={`p-3 rounded-t-lg  ${
+              Router.pathname === "/my-pokemon"
+                ? "bg-cyan-600 text-white"
+                : "text-cyan-600"
+            }`}
+          >
+            <ul className="flex flex-col justify-center items-center">
+              <li
+                className={`text-lg h-7 font-semibold  cursor-pointer`}
+                onClick={() => Router.push("/my-pokemon")}
+              >
+                My Pokemon
+              </li>
+              {Router.pathname !== "/my-pokemon" && (
+                <li className="h-1 w-full bg-cyan-600 translate-y-2"></li>
+              )}
+            </ul>
+          </div>
         </div>
       </nav>
     </header>

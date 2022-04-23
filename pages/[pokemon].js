@@ -66,6 +66,7 @@ export default function Pokemon({ pokemon }) {
   };
 
   useEffect(() => {
+    console.log("tes");
     if (Object.keys(state.myPokemon).length > 0) {
       dispatch({
         type: "SET_LOCAL_STORAGE",
