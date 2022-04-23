@@ -66,7 +66,11 @@ export default function Home() {
           {getPokemonsWithOwned.map((pokemon) => (
             <Card
               key={pokemon.id}
-              onClick={() => Router.push(`/${pokemon.name}`)}
+              onClick={(e) => {
+                if (e === "detail") {
+                  Router.push(`/${pokemon.name}`);
+                }
+              }}
               dataProps={pokemon}
             ></Card>
           ))}

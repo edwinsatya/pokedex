@@ -9,10 +9,6 @@ import { useRouter } from "next/router";
 export default function MyPokemon() {
   const Router = useRouter();
   const { state, dispatch } = UseGlobalContext();
-  useEffect(() => {
-    console.log("tes");
-    dispatch({ type: "GET_STATE_POKEMON" });
-  }, [dispatch]);
 
   const getComputedListPokemon = useMemo(() => {
     const listPokemon = [];
@@ -21,6 +17,15 @@ export default function MyPokemon() {
     }
     return listPokemon;
   }, [state]);
+
+  const handleRelease = (pokemon) => {
+    dispatch({ type: "RELEASE_POKEMON", value: pokemon });
+    dispatch({ type: "SET_LOCAL_STORAGE" });
+  };
+
+  useEffect(() => {
+    dispatch({ type: "GET_STATE_POKEMON" });
+  }, []);
 
   return (
     <Layout
@@ -37,7 +42,13 @@ export default function MyPokemon() {
             {getComputedListPokemon.map((pokemon, idx) => (
               <Card
                 key={idx}
-                onClick={() => Router.push(`/${pokemon.name}`)}
+                onClick={(e) => {
+                  if (e === "detail") {
+                    Router.push(`/${pokemon.name}`);
+                  } else if (e === "release") {
+                    handleRelease(pokemon);
+                  }
+                }}
                 dataProps={pokemon}
               ></Card>
             ))}
