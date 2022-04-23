@@ -37,17 +37,3 @@ export const GET_POKEMON = gql`
     }
   }
 `;
-
-export const GET_TYPE = gql`
-  query types {
-    types {
-      count
-      next
-      previous
-      results {
-        url
-        name
-      }
-    }
-  }
-`;
