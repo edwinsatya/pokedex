@@ -5,13 +5,13 @@ import CardTypeMove from "../components/card/CardTypeMove";
 import getChanceCatchPokemon from "../helpers/getChanceCatchPokemon";
 import useComputedId from "../helpers/useGetComputedId";
 import useGetComputedTypePokemon from "../helpers/useGetComputedTypePokemon";
-import useGetMovePokemon from "../helpers/useGetComputedMovePokemon copy";
+import useGetMovePokemon from "../helpers/useGetComputedMovePokemon";
+import ImageDetailContent from "../components/pokemonDetail/ImageDetailContent";
+import TypeDetailContent from "../components/pokemonDetail/TypeDetailContent";
 import { GET_POKEMON } from "../graphQl/queries";
 import { useRouter } from "next/router";
 import { UseGlobalContext } from "../store/context";
 import { useEffect, useState } from "react";
-import ImageDetailContent from "../components/pokemonDetail/ImageDetailContent";
-import TypeDetailContent from "../components/pokemonDetail/TypeDetailContent";
 
 export async function getServerSideProps(context) {
   const params = context.params.pokemon;

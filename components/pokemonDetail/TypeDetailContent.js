@@ -4,7 +4,11 @@ export default function TypeDetailContent({ children, titleType }) {
       <div className="w-full text-center">
         <h3 className="font-medium text-xl">{titleType}</h3>
       </div>
-      <div className="flex justify-around mx-auto flex-wrap max-w-md w-full rounded-lg px-2 py-5 mt-5 shadow-xl shadow-cyan-600">
+      <div
+        className={`flex justify-around mx-auto flex-wrap ${
+          titleType === "Types" ? "max-w-md" : "max-w-6xl"
+        } w-full rounded-lg px-2 py-5 mt-5 shadow-xl shadow-cyan-600`}
+      >
         {children}
       </div>
     </div>
