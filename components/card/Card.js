@@ -2,7 +2,7 @@ import Image from "next/image";
 import useComputedId from "../../helpers/useGetComputedId";
 
 export default function Card({ dataProps, onClick }) {
-  const { name, owned, id } = dataProps;
+  const { name, owned, id, nick } = dataProps;
 
   const computedId = useComputedId(id);
 
@@ -37,14 +37,22 @@ export default function Card({ dataProps, onClick }) {
         {/* description */}
         <p className="text-cyan-300 text-lg xl:text-xl">{computedId}</p>
         <p className="capitalize font-bold text-xl xl:text-2xl">{name}</p>
-        <p className="flex items-center">
-          <span className="text-blue-300 text-base xl:text-lg"> Owned :</span>
-          <span
-            className={`${classNumberOwned(owned)} font-semibold text-4xl ml-2`}
-          >
-            {owned}
-          </span>
-        </p>
+        {nick ? (
+          <p className="capitalize text-blue-300 text-base xl:text-lg">
+            {nick}
+          </p>
+        ) : (
+          <p className="flex items-center">
+            <span className="text-blue-300 text-base xl:text-lg"> Owned :</span>
+            <span
+              className={`${classNumberOwned(
+                owned
+              )} font-semibold text-4xl ml-2`}
+            >
+              {owned}
+            </span>
+          </p>
+        )}
       </div>
     </div>
   );
