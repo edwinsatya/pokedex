@@ -34,6 +34,7 @@ export default function Home() {
 
   useEffect(() => {
     if (data) {
+      console.log(data);
       dispatch({ type: "GET_STATE" });
       const newListPokemon = data.pokemons.results;
       setListPokemon(newListPokemon);
