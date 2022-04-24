@@ -9,7 +9,7 @@ export default function Header() {
   const [showMenuMobile, setShowMenuMobile] = useState(false);
 
   return (
-    <header className="bg-white w-full h-auto flex justify-center relative flex-col">
+    <header className="bg-white w-full h-auto flex justify-center relative">
       <nav
         className="relative flex justify-center items-center w-full md:justify-start py-2 px-5 md:px-12"
         style={{ maxWidth: "1440px" }}
