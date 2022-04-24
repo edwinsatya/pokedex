@@ -66,7 +66,6 @@ export default function Pokemon({ pokemon }) {
   };
 
   useEffect(() => {
-    console.log("tes");
     if (Object.keys(state.myPokemon).length > 0) {
       dispatch({
         type: "SET_LOCAL_STORAGE",
@@ -87,7 +86,7 @@ export default function Pokemon({ pokemon }) {
     handleResize();
 
     return () => window.removeEventListener("resize", handleResize);
-  }, [state]);
+  }, [state.myPokemon]);
 
   return (
     <Layout
@@ -109,7 +108,7 @@ export default function Pokemon({ pokemon }) {
           />
 
           <Button
-            className="my-5 rounded-full w-full max-w-sm text-blue-300 text-sm font-bold cursor-pointer transition ease-in-out hover:bg-yellow-300 hover:text-black hover:shadow-none duration-150 mx-auto py-2 lg:py-5 lg:my-12 lg:text-xl"
+            className="my-5 rounded-full w-full underline max-w-sm text-blue-300 text-sm font-bold cursor-pointer transition ease-in-out hover:bg-yellow-300 hover:text-black hover:shadow-none hover:no-underline duration-150 mx-auto py-2 lg:py-5 lg:my-12 lg:text-xl"
             title={`Catch ${pokemon.name}!`}
             onClick={handleCatchPokemon}
           />

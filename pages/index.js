@@ -49,7 +49,7 @@ export default function Home() {
         owned: owned[pokemon.id]?.length ?? 0,
       };
     });
-  }, [listPokemon, state]);
+  }, [listPokemon, state.myPokemon]);
 
   if (error) {
     console.log(error);
