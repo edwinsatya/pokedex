@@ -48,7 +48,8 @@ Iam using (Graphql-pokemon) api for develop this project :
 ### Styling
 
 - Tailwind css : https://tailwindcss.com/
+- Emotion : https://emotion.sh/docs/introduction
 
 ### Deployment
 
-- Deploy in vercel :
+- Deploy in vercel : https://pokedex.edwinsatya.com/
