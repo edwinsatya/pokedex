@@ -25,6 +25,7 @@ export default function MyPokemon() {
 
   useEffect(() => {
     dispatch({ type: "GET_STATE_POKEMON" });
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -35,7 +36,7 @@ export default function MyPokemon() {
       <div className="flex flex-col">
         {getComputedListPokemon.length === 0 ? (
           <div className="h-screen w-full text-white flex justify-center items-center font-extrabold text-lg md:text-2xl text-center">
-            <h2>You don't have any pokémon right now</h2>
+            <h2>You dont have any pokémon right now</h2>
           </div>
         ) : (
           <CardWrapper>

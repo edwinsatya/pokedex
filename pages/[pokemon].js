@@ -86,6 +86,7 @@ export default function Pokemon({ pokemon }) {
     handleResize();
 
     return () => window.removeEventListener("resize", handleResize);
+    // eslint-disable-next-line
   }, [state.myPokemon]);
 
   return (

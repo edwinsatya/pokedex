@@ -1,34 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Pokédex
 
-## Getting Started
+## Portfolio pokemon
 
-First, run the development server:
+### by : Edwin Satya Yudistira
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### How to Access
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- git clone : https://github.com/edwinsatya/pokedex
+- npm install
+- npm run dev
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### Api
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Iam using (Graphql-pokemon) api for develop this project :
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- https://graphql-pokeapi.vercel.app/
 
-## Learn More
+  #### List Query Api
 
-To learn more about Next.js, take a look at the following resources:
+  - GET_POKEMONS :
+    ` query pokemons($limit: Int, $offset: Int) { pokemons(limit: $limit, offset: $offset) { next previous message results { id url name image } } }`
+  - GET_POKEMON :
+    ` query pokemon($name: String!) { pokemon(name: $name) { id name sprites { front_default } moves { move { name } } types { type { name } } } }`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  ##### All query run well
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Page
 
-## Deploy on Vercel
+- Title : Pokédex
+  #### path : `/`
+  #### desc : `This page about list of pokemons, in card of pokemon, any information about the pokemon like name, number/id, and total owned. You can click 1 pokemon and then you can go detail`
+- Title : Name of pokemon (ex: bulbasaur) | Pokédex
+  #### path : `/[name-pokemon]`
+  #### desc : `This page about pokemon details, you can see any information like image, name, number/id, types, moves, and then you can catch them (success probability is 50%), if failed catch any popup/modal information and if success catch any popup/modal information and you can input the nick name for your pokemon, and BOOM your last pokemon already in bagpack or my-pokemon page`
+- Title : My pokemon | Pokédex
+  #### path : `/my-pokemon`
+  #### desc : `This page about list all your pokemon has been arrested, any information about your pokemon like in Pokédex/home, but you can release your pokemon`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Feature
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- `Using graphql`
+- `Performant checked`
+- `persist state (localStorage)`
+- `Centralization state using useContext + useReducer`
+- `Unit testing coming soon`
+
+### Styling
+
+- Tailwind css : https://tailwindcss.com/
+
+### Deployment
+
+- Deploy in vercel :
