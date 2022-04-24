@@ -1,6 +1,6 @@
 # Pokédex
 
-## Portfolio pokemon
+## Portfolio pokemon using next + graphql
 
 ### by : Edwin Satya Yudistira
 
