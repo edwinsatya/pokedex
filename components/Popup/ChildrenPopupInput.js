@@ -11,16 +11,14 @@ export default function ChildrenPopupInput({ dataProps }) {
   const checkValidation = () => {
     let flag = true;
 
-    for (const property in state.myPokemon) {
-      const currentPokemon = state.myPokemon[property];
-      if (
-        currentPokemon.some(
-          (pokemon) =>
-            pokemon.nick.toLowerCase() === inputRef.current.value.toLowerCase()
-        )
-      ) {
-        flag = false;
-      }
+    const currentPokemon = state.myPokemon[dataProps.id] ?? [];
+    if (
+      currentPokemon.some(
+        (pokemon) =>
+          pokemon.nick.toLowerCase() === inputRef.current.value.toLowerCase()
+      )
+    ) {
+      flag = false;
     }
     return flag;
   };
@@ -62,7 +60,7 @@ export default function ChildrenPopupInput({ dataProps }) {
       />
 
       <p className={`${isValid ? "hidden" : "block"} text-red-500 mt-2`}>
-        Nick already used
+        Nick already used in this pokemon
       </p>
     </form>
   );

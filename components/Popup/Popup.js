@@ -3,7 +3,7 @@ export default function Popup({ children, title, onClick }) {
     <div
       id="defaultModal"
       aria-hidden="true"
-      className="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full flex justify-center items-center bg-[rgba(0,0,0,0.65)]"
+      className="overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full h-full md:inset-0 h-modal md:h-full flex justify-center items-center bg-[rgba(0,0,0,0.65)]"
     >
       <div className="relative p-4 w-full max-w-2xl h-full md:h-auto">
         <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">

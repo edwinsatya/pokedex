@@ -45,13 +45,11 @@ export function reducer(state, action) {
     case "RELEASE_POKEMON":
       const { id, nick } = action.value;
       let indexVal = 0;
-      for (const property in state.myPokemon) {
-        state.myPokemon[property].forEach((obj, idx) => {
-          if (obj.nick === nick) {
-            indexVal = idx;
-          }
-        });
-      }
+      state.myPokemon[id].forEach((obj, idx) => {
+        if (obj.nick === nick) {
+          indexVal = idx;
+        }
+      });
 
       return {
         ...state,
