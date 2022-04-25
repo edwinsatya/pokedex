@@ -19,7 +19,20 @@ export default function MyPokemon() {
   }, [state]);
 
   const handleRelease = (pokemon) => {
-    dispatch({ type: "RELEASE_POKEMON", value: pokemon });
+    const newArr = [...state.myPokemon[pokemon.id]];
+    let indexVal = 0;
+
+    state.myPokemon[pokemon.id].forEach((obj, idx) => {
+      if (obj.nick === pokemon.nick) {
+        indexVal = idx;
+      }
+    });
+    newArr.splice(indexVal, 1);
+    const payload = {
+      id: pokemon.id,
+      newArr,
+    };
+    dispatch({ type: "RELEASE_POKEMON", value: payload });
     dispatch({ type: "SET_LOCAL_STORAGE" });
   };
 

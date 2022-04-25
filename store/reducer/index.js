@@ -43,19 +43,13 @@ export function reducer(state, action) {
         myPokemon: JSON.parse(localStorage.getItem("owned")) ?? {},
       };
     case "RELEASE_POKEMON":
-      const { id, nick } = action.value;
-      let indexVal = 0;
-      state.myPokemon[id].forEach((obj, idx) => {
-        if (obj.nick === nick) {
-          indexVal = idx;
-        }
-      });
+      const { id, newArr } = action.value;
 
       return {
         ...state,
         myPokemon: {
           ...state.myPokemon,
-          [id]: state.myPokemon[id].splice(indexVal, 1),
+          [id]: newArr,
         },
       };
     case "SET_SHOW_POPUP":
