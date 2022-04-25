@@ -32,7 +32,7 @@ Iam using (Graphql-pokemon) api for develop this project :
   #### desc : `This page about list of pokemons, in card of pokemon, any information about the pokemon like name, number/id, and total owned. You can click 1 pokemon and then you can go detail`
 - Title : Name of pokemon (ex: bulbasaur) | Pokédex
   #### path : `/[name-pokemon]`
-  #### desc : `This page about pokemon details, you can see any information like image, name, number/id, types, moves, and then you can catch them (success probability is 50%), if failed catch any popup/modal information and if success catch any popup/modal information and you can input the nick name for your pokemon, and BOOM your last pokemon already in bagpack or my-pokemon page`
+  #### desc : `This page about pokemon details, you can see any information like image, name, number/id, types, moves, and then you can catch them (success probability is 50%), if failed catch any popup/modal information and if success catch any popup/modal information and you can input the nick name for your pokemon (just can add same nickname in 1 pokemon/1 id pokemon), and BOOM your last pokemon already in bagpack or my-pokemon page`
 - Title : My pokemon | Pokédex
   #### path : `/my-pokemon`
   #### desc : `This page about list all your pokemon has been arrested, any information about your pokemon like in Pokédex/home, but you can release your pokemon`
