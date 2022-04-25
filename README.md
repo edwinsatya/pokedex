@@ -7,7 +7,7 @@
 ### How to Access
 
 - git clone : https://github.com/edwinsatya/pokedex
-- npm install
+- npm install or if any error message try npm install --legacy-peer-deps
 - npm run dev
 
 ### Api
